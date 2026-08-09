@@ -113,7 +113,7 @@
         @media print {
                 page-break-before: always;
         }
-        ~ :not(h1 ,h2 ,h3) {
+        ~ :not(h1 ,h2 ,h3,hr) { /* インデント処理 */
             margin-left: calc(var(--font-size) * 1);
         }
     }
@@ -126,7 +126,7 @@
         &::before {
             content: counter(h2) "." counter(h3) " ";
         }
-        ~ :not(h1 ,h2 ,h3) {
+        ~ :not(h1 ,h2 ,h3,hr) { /* インデント処理 */
             margin-left: calc(var(--font-size) * 1.5);
         }
     }
@@ -144,7 +144,7 @@
     }
     /* HeadLine */
 
-    & h6 {
+    & h6 { /* 注釈として利用 */
         margin: 0;
         font-size:xx-small;
         &::before {content: '[*';}
@@ -176,43 +176,46 @@
         font-style: italic;
     }
     /* characters and sentences */
+
     /* Table */
     & table {
-        /* margin: var(--margin); */
         margin-bottom: var(--margin-bottom);
-        border-width: medium;
-        border-style: solid;
-        border-color: var(--color-border-default);
-        border-spacing: unset;
-        padding: unset;
+        border: medium solid var(--color-border-default);
+        border-spacing: 0;
+        padding: 0;
+
         & thead {
             background-color: var(--color-canvas-subtle);
             border-bottom: thin solid var(--color-border-subtle);
-            & tr {
-                & th {
-                    border-style:  none solid;
-                    border-width: thin;
-                    border-color: var(--color-border-default);
-                    padding: calc(var(--font-size) * 0.1) calc(var(--font-size) * 0.2);
-                }
-            }
         }
+
         & tbody {
             border-top: thin solid var(--color-border-subtle);
-            & tr {
-                & td {
-                    border-style: dotted solid;
-                    border-width: thin;
-                    border-color: var(--color-border-default);
-                    padding: calc(var(--font-size) * 0.1) calc(var(--font-size) * 0.2);
-                }
-            }
-            > tr:nth-of-type(2n-0){
-                background-color: var(--color-canvas-muted);
-            }
+        }
+
+        & th,
+        & td {
+            border-width: thin;
+            border-color: var(--color-border-default);
+            padding:
+                calc(var(--font-size) * 0.1)
+                calc(var(--font-size) * 0.2);
+        }
+
+        & th {
+            border-style: none solid;
+        }
+
+        & td {
+            border-style: dotted solid;
+        }
+
+        & tbody > tr:nth-of-type(even) {
+            background-color: var(--color-canvas-muted);
         }
     }
     /* Table */
+
     /* CodeBlock */
     & pre {
         background-color: var(--color-canvas-subtle);
@@ -236,6 +239,7 @@
         line-height: 1;
     }
     /* CodeBlock */
+
     /* Decoration */
     & hr {
         background-color: var(--color-border-default);
@@ -252,6 +256,7 @@
         padding-left: calc(var(--font-size) / 2);
     }
     /* Decoration */
+
     /* List */
     & ol ,
     & ul {
