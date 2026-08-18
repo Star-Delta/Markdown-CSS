@@ -183,8 +183,8 @@
         border: medium solid var(--color-border-default);
         border-spacing: 0;
         padding: 0;
-        display: block; /*横スクロール*/
-        overflow-x: scroll; /*横スクロール*/
+        display: table; /*横スクロール*/
+        overflow-x: auto; /*横スクロール*/
 
         & thead {
             background-color: var(--color-canvas-subtle);
