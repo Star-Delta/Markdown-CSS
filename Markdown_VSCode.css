@@ -33,6 +33,12 @@
     padding-right:0;
     padding-left:0;
     background-color: var(--color-canvas-default);
+    .markdown-body {
+        .mermaid-wrapper {
+            /* Mermaidプレビューが右側にはみ出さないようにする */
+            width: unset; 
+        }
+    }
 } 
 
 html {
