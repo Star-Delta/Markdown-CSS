@@ -38,7 +38,7 @@
 
 .markdown-body {
     /* --margin: calc(var(--font-size) * 0.5); */
-    --margin: 0.5cm;
+    /* --margin: 0.5cm; */
     --margin-bottom: var(--font-size);
     --border: none;
     --padding:none;
@@ -51,6 +51,10 @@
     background-color: var(--color-canvas-default);
     /* margin: var(--margin); */
     /* margin-bottom: var(--margin-bottom); */
+    margin: 0;
+    > :not(h1, h2, h3, hr, h6) {
+        margin-inline: 1rem;
+    }
     border: var(--border);
     padding: var(--padding);
     line-height: var(--line-height);
@@ -68,9 +72,9 @@
     & h3,
     & h4,
     & h5{
-        margin-left: 0;
-        margin-right: 0;
-        padding-top: calc(var(--font-size) * 0.25);
+        /* margin-left: 0; */
+        /* margin-right: 0; */
+        padding-top: 1rem;
         padding-bottom: calc(var(--font-size) * 0);
         line-height:1;
     }
@@ -88,7 +92,7 @@
         -webkit-print-color-adjust: exact;
     }
     & h1 {
-        margin-right: calc(var(--font-size) * 2);
+        margin-right: 2rem;
         margin-bottom: calc(var(--margin-bottom) + var(--font-size));
         border: none;
         box-shadow: var(--font-size) calc(var(--font-size) / 2) 0 var(--color-headline-muted), calc(var(--font-size) * 2) var(--font-size) 0 var(--color-headline-subtle);
@@ -113,9 +117,6 @@
         @media print {
                 page-break-before: always;
         }
-        ~ :not(h1 ,h2 ,h3,hr) { /* インデント処理 */
-            margin-left: calc(var(--font-size) * 1);
-        }
     }
     & h3 {
         border-left: solid calc(var(--font-size) * 1) var(--color-headline-muted);
@@ -125,9 +126,6 @@
         counter-increment: h3;
         &::before {
             content: counter(h2) "." counter(h3) " ";
-        }
-        ~ :not(h1 ,h2 ,h3,hr) { /* インデント処理 */
-            margin-left: calc(var(--font-size) * 1.5);
         }
     }
     & h4 {
@@ -183,8 +181,8 @@
         border: medium solid var(--color-border-default);
         border-spacing: 0;
         padding: 0;
-        display: table; /*横スクロール*/
-        overflow-x: auto; /*横スクロール*/
+        display: table;
+        overflow-x: auto; 
 
         & thead {
             background-color: var(--color-canvas-subtle);
@@ -223,7 +221,7 @@
         background-color: var(--color-canvas-subtle);
         border-radius: calc(var(--font-size) * 0.225);
         /* margin: var(--margin); */
-        margin: 0;
+        /* margin: 0; */
         margin-bottom: var(--margin-bottom);
         border: calc(var(--font-size) * 0.1) solid var(--color-border-default);
         padding: calc(var(--font-size) * 0.25);
