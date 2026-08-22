@@ -55,7 +55,7 @@
     > :first-child {
         margin-block-start: 0;
     }
-    > :not(h1, h2, h3, hr, h6) {
+    > :not(h1, h2, h3, h6, hr) {
         margin-inline: 1rem;
     }
     border: var(--border);
@@ -72,89 +72,71 @@
     /* HeadLine */
     :is(h1, h2, h3, h4, h5) {
         margin-block:1.5em 0.5em;
-        /* padding-block-start : 0.25em; */
+        padding-block : 0;
         /* padding-bottom: calc(var(--font-size) * 0); */
         line-height:1;
         + :is(h1, h2, h3, h4, h5) {
-            margin-block:0.25em;
+            margin-block: 0.25em;
         }
-    }
-    & h2,
-    & h3,
-    & h4,
-    & h5 {
-        /* margin-bottom: calc(var(--margin-bottom)); */
-    }
-
-    & h1,
-    & h2 {
-        print-color-adjust: exact;
-        -webkit-print-color-adjust: exact;
     }
     & h1 {
-        margin-right: 1em;
-        margin-bottom: calc(var(--margin-bottom) + var(--font-size));
+        margin-inline-end: 1em;
+        /* margin-block-end: 1em; */
+        /* margin-bottom: calc(var(--margin-bottom) + var(--font-size)); */
         border: none;
-        padding-block-start : 0.25em;
+        padding-block-start : 0.2em;
         background: var(--color-headline-default);
-        box-shadow: var(--font-size) calc(var(--font-size) / 2) 0 var(--color-headline-muted), calc(var(--font-size) * 2) var(--font-size) 0 var(--color-headline-subtle);
+        box-shadow: 0.5em 0.25em  var(--color-headline-muted), 1em 0.5em var(--color-headline-subtle);
         font-size:xx-large;
         text-align: center;
-        @media print {
-            margin-top: 50vh;
-            + p {text-align: center;}
-        }
         counter-reset: h2;
     }
     & h2 {
-        border-left: solid calc(var(--font-size) * 0.5) var(--color-headline-muted);
-        border-bottom: solid calc(var(--font-size) * 0.25) var(--color-headline-subtle);
-        padding-left: calc(var(--font-size) / 2);
+        border-inline-start: solid 0.5rem var(--color-headline-muted);
+        border-block-end: solid calc(var(--font-size) * 0.25) var(--color-headline-subtle);
+        padding-inline-start: 0.25em;
         padding-block-start : 0.25em;
         background: var(--color-headline-default);
-        font-size:xx-large;
+        font-size:x-large;
         counter-increment: h2;
         counter-reset: h3;
         &::before {
             content: counter(h2) " ";
         }
-        @media print {
-                page-break-before: always;
-        }
     }
     & h3 {
-        border-left: solid calc(var(--font-size) * 1) var(--color-headline-muted);
-        border-bottom: solid calc(var(--font-size) * 0.25) var(--color-headline-subtle);
-        padding-left: calc(var(--font-size) / 2);
+        border-inline-start: solid 1rem var(--color-headline-muted);
+        border-block-end: solid calc(var(--font-size) * 0.25) var(--color-headline-subtle);
+        padding-inline-start: 0.25em;
         padding-block-start : 0.25em;
-        font-size:xx-large;
+        font-size:x-large;
         counter-increment: h3;
         &::before {
             content: counter(h2) "." counter(h3) " ";
         }
     }
     & h4 {
-        font-size:x-large;
-        border-bottom: solid calc(var(--font-size) * 0.66) var(--color-headline-default);
+        font-size:large;
+        border-block-end: solid 0.25em var(--color-headline-default);
         position: relative;
         display: table;
     }
     & h5 {
-        font-size:large;
-        border-bottom: solid calc(var(--font-size) * 0.33) var(--color-headline-muted);
+        /* font-size:large; */
+        border-block-end: solid 0.25em var(--color-headline-muted);
         position: relative;
         display: table;
     }
     /* HeadLine */
 
     & h6 { /* 注釈として利用 */
-        margin: 0;
+        margin-block: 0;
         font-size:xx-small;
         &::before {content: '[*';}
         &::after {content: ']';}
         + p {
             font-size: xx-small;
-            margin-top: 0;
+            margin-block-start: 0;
         }
     }
     
