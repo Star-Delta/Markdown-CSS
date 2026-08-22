@@ -18,4 +18,21 @@
     .markdown-body h2 {
         page-break-before: always;
     }
+    /* 印刷時は横スクロールを解除 */
+    .markdown-body table {
+        display: table;
+        width: auto;
+        max-width: 100%;
+        overflow: visible;
+    }
+    .markdown-body > table {
+        max-width: calc(100% - 2 * var(--content-indent));
+    }
+
+    /* 印刷時はセル内の自動改行を許可 */
+    .markdown-body th,
+    .markdown-body td {
+        white-space: normal;
+        overflow-wrap: anywhere;
+    }
 }

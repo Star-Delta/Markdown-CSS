@@ -43,6 +43,7 @@
     --border: none;
     --padding:none;
     --font-size: 16px;
+    --content-indent: 1rem;
     /* --line-height: calc(var(--font-size) * 1.25); */
     --line-height: 1.5;
 }
@@ -56,7 +57,7 @@
         margin-block-start: 0;
     }
     > :not(h1, h2, h3, h6, hr) {
-        margin-inline: 1rem;
+        margin-inline: var(--content-indent);
     }
     border: var(--border);
     padding: var(--padding);
@@ -165,41 +166,48 @@
     /* Table */
     & table {
         margin-bottom: var(--margin-bottom);
-        border: medium solid var(--color-border-default);
-        border-spacing: 0;
         padding: 0;
-        display: table;
-        overflow-x: auto; 
+        border: medium solid var(--color-border-default);
+        border-collapse: separate;
+        border-spacing: 0;
+        display: block;
+        width: max-content;
+        max-width: 100%;
+        overflow-x: auto;
+        box-sizing: border-box;
 
         & thead {
             background-color: var(--color-canvas-subtle);
-            border-bottom: thin solid var(--color-border-subtle);
-        }
-
-        & tbody {
-            border-top: thin solid var(--color-border-subtle);
         }
 
         & th,
         & td {
-            border-width: thin;
-            border-color: var(--color-border-default);
+            border: 0;
+            white-space: nowrap;
             padding:
                 calc(var(--font-size) * 0.1)
                 calc(var(--font-size) * 0.2);
         }
 
-        & th {
-            border-style: none solid;
+        & tr > :not(:first-child) {
+            border-inline-start: thin solid var(--color-border-subtle);
         }
 
-        & td {
-            border-style: dotted solid;
+        & tbody > tr:first-child > * {
+            border-block-start: thin solid var(--color-border-default);
+        }
+
+        & tbody > tr + tr > * {
+            border-block-start: thin dotted var(--color-border-subtle);
         }
 
         & tbody > tr:nth-of-type(even) {
             background-color: var(--color-canvas-muted);
         }
+    }
+
+    > table {
+        max-width: calc(100% - 2 * var(--content-indent));
     }
     /* Table */
 
