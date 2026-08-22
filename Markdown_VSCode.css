@@ -34,9 +34,14 @@
     padding-left:0;
     background-color: var(--color-canvas-default);
     .markdown-body {
-        .mermaid-wrapper {
-            /* Mermaidプレビューが右側にはみ出さないようにする */
+        .mermaid-wrapper {/* Mermaidプレビューがインデントの分だけ右側にはみ出す問題への対処 */
             width: unset; 
+        }
+        #markdown-mermaid {/* プレビューの先頭にMermaid初期化用spanが生成される問題への対処 */
+            display: none;
+        }
+        > :nth-child(1 of :not(#markdown-mermaid)) {/* プレビューの先頭にMermaid初期化用spanが生成される問題への対処 */
+            margin-block-start: 0;
         }
     }
 } 
