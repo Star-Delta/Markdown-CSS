@@ -29,6 +29,13 @@
         max-width: calc(100% - 2 * var(--content-indent));
     }
 
+    /* 印刷時はCodeBlockの横スクロールを解除して要素内で改行 */
+    .markdown-body pre {
+        overflow: visible;
+        white-space: pre-wrap;
+        overflow-wrap: anywhere;
+    }
+
     /* 印刷時はセル内の自動改行を許可 */
     .markdown-body th,
     .markdown-body td {

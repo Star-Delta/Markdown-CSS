@@ -44,6 +44,11 @@
             margin-block-start: 0;
         }
     }
+    /* Windows版VS Codeで縦スクロールバーが出ない下限値49pxに余裕を持たせる */
+    & pre:has(> .code-block-copy-button) {
+        box-sizing: border-box;
+        min-block-size: 50px;
+    }
 } 
 
 html {

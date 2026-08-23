@@ -189,18 +189,22 @@
                 calc(var(--font-size) * 0.2);
         }
 
+        /* 列間の縦罫線 */
         & tr > :not(:first-child) {
             border-inline-start: thin solid var(--color-border-subtle);
         }
 
+        /* HeaderとBodyの境界 */
         & tbody > tr:first-child > * {
             border-block-start: thin solid var(--color-border-default);
         }
 
+        /* Body内の行間 */
         & tbody > tr + tr > * {
             border-block-start: thin dotted var(--color-border-subtle);
         }
 
+        /* 縞縞をつける */
         & tbody > tr:nth-of-type(even) {
             background-color: var(--color-canvas-muted);
         }
@@ -220,6 +224,8 @@
         margin-bottom: var(--margin-bottom);
         border: calc(var(--font-size) * 0.1) solid var(--color-border-default);
         padding: calc(var(--font-size) * 0.25);
+        overflow-x: auto;
+        max-block-size: none;
     }
     & code {
         background-color: var(--color-canvas-subtle);
@@ -232,6 +238,10 @@
             Meiryo,/* 和文コメント用：Windows Vista(2006年) */
             monospace;/* 上記以外 */
         line-height: 1;
+    }
+    /* インラインコードの長い連続文字列を画面内で改行する */
+    & code:not(pre code) {
+        overflow-wrap: anywhere;
     }
     /* CodeBlock */
 
