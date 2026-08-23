@@ -1,2 +1,3 @@
 /Preview/ export-ignore
 /.* export-ignore
+/MARP.css export-ignore
