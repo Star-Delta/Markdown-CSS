@@ -245,6 +245,17 @@
     }
     /* CodeBlock */
 
+    /* Image */
+    & img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    > img {
+        max-width: calc(100% - 2 * var(--content-indent));
+    }
+    /* Image */
+
     /* Decoration */
     & hr {
         background-color: var(--color-border-default);
