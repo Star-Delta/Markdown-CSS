@@ -33,12 +33,12 @@ CommonMarkおよびGitHub Flavored Markdown（GFM）に沿って生成されたH
 
 ### ファイル構成
 
-| ファイル              | 用途                                                         | URL                                                                         |
-| --------------------- | ------------------------------------------------------------ | --------------------------------------------------------------------------- |
-| `Markdown.css`        | Markdown用スタイル                                           | `https://cdn.jsdelivr.net/gh/Star-Delta/Markdown-CSS@0/Markdown.css`        |
-| `Markdown_VSCode.css` | `Markdown.css`をVS Codeで使用する際に必要なスタイル          | `https://cdn.jsdelivr.net/gh/Star-Delta/Markdown-CSS@0/Markdown_VSCode.css` |
-| `Markdown_Print.css`  | `Markdown.css`を印刷・PDF出力する際に必要なスタイル          | `https://cdn.jsdelivr.net/gh/Star-Delta/Markdown-CSS@0/Markdown_Print.css`  |
-| `MARP.css`            | `Markdown.css`をMarp for VS Codeで使用する際に必要なスタイル | 未完成のためCDN配信対象外                                                   |
+| ファイル(CDNへのリンク)                                                                          | 用途                                                         | 備考                       |
+| ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------- |
+| [Markdown.css](https://cdn.jsdelivr.net/gh/Star-Delta/Markdown-CSS@0/Markdown.css)               | 基本となるMarkdown用スタイル                                           |                           |
+| [Markdown_VSCode.css](https://cdn.jsdelivr.net/gh/Star-Delta/Markdown-CSS@0/Markdown_VSCode.css) | `Markdown.css`をVS Codeで使用する際に必要なスタイル          |                           |
+| [Markdown_Print.css](https://cdn.jsdelivr.net/gh/Star-Delta/Markdown-CSS@0/Markdown_Print.css)   | `Markdown.css`を印刷・PDF出力する際に必要なスタイル          |                           |
+| `MARP.css`                                                                                       | `Markdown.css`をMarp for VS Codeで使用する際に必要なスタイル | 未完成のためCDN配信対象外 |
 
 ### H6を注釈として使用する
 
