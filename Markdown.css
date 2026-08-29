@@ -4,15 +4,16 @@
     .markdown-body {
         color-scheme: light;
         --color-font: Black;
-        --color-canvas-default: White;
-        --color-canvas-muted: GhostWhite;
-        --color-canvas-subtle: WhiteSmoke;
-        --color-border-default: LightGray;
-        --color-border-muted: DarkGray;
+        --color-background-emphasis: White;
+        --color-background: GhostWhite;
+        --color-background-muted: WhiteSmoke;
+        /* --color-background-subtle: WhiteSmoke; */
+        --color-border: LightGray;
+        /* --color-border-muted: DarkGray; */
         --color-border-subtle: Gray;
-        --color-headline-default: DarkSeaGreen;
-        --color-headline-muted: MediumSeaGreen;
-        --color-headline-subtle: SeaGreen;
+        --color-heading-default: DarkSeaGreen;
+        --color-heading-muted: MediumSeaGreen;
+        --color-heading-subtle: DarkSeaGreen;
         --color-danger: red;
         --color-syntax: DarkGoldenrod;
     }
@@ -22,15 +23,17 @@
     .markdown-body {
         color-scheme: dark;
         --color-font: White;
-        --color-canvas-default: #1f2933;
-        --color-canvas-muted: #323f4b;
-        --color-canvas-subtle: #3e4c59;
-        --color-border-default: #52606d;
-        --color-border-muted: #616e7c;
+        /* --color-background-emphasis: #1f2933; */
+        --color-background-emphasis: #3e4c59;
+        --color-background: #323f4b;
+        --color-background-muted: #1f2933;
+        /* --color-background-subtle: #3e4c59; */
+        --color-border: #52606d;
+        /* --color-border-muted: #616e7c; */
         --color-border-subtle: #7b8794;
-        --color-headline-default: DarkOliveGreen;
-        --color-headline-muted: Olive;
-        --color-headline-subtle: OliveDrab;
+        --color-heading-default: OliveDrab;
+        --color-heading-muted: Olive;
+        --color-heading-subtle: DarkOliveGreen;
         --color-danger: red;
         --color-syntax: Goldenrod;
     }
@@ -49,7 +52,7 @@
 }
 
 .markdown-body {
-    background-color: var(--color-canvas-default);
+    background-color: var(--color-background);
     /* margin: var(--margin); */
     /* margin-bottom: var(--margin-bottom); */
     margin: 0;
@@ -94,19 +97,19 @@
         /* margin-bottom: calc(var(--margin-bottom) + var(--font-size)); */
         border: none;
         padding-block-start: 0.2em;
-        background: var(--color-headline-default);
-        box-shadow: 0.5em 0.25em var(--color-headline-muted), 1em 0.5em var(--color-headline-subtle);
+        background: var(--color-heading-subtle);
+        box-shadow: 0.5em 0.25em var(--color-heading-muted), 1em 0.5em var(--color-heading-default);
         font-size: xx-large;
         text-align: center;
         counter-reset: h2;
     }
 
     & h2 {
-        border-inline-start: solid 0.5rem var(--color-headline-muted);
-        border-block-end: solid calc(var(--font-size) * 0.25) var(--color-headline-subtle);
+        border-inline-start: solid 1rem var(--color-heading-muted);
+        border-block-end: solid calc(var(--font-size) * 0.25) var(--color-heading-default);
         padding-inline-start: 0.25em;
         padding-block-start: 0.25em;
-        background: var(--color-headline-default);
+        background: var(--color-heading-subtle);
         font-size: x-large;
         counter-increment: h2;
         counter-reset: h3;
@@ -117,8 +120,8 @@
     }
 
     & h3 {
-        border-inline-start: solid 1rem var(--color-headline-muted);
-        border-block-end: solid calc(var(--font-size) * 0.25) var(--color-headline-subtle);
+        border-inline-start: solid 1rem var(--color-heading-muted);
+        border-block-end: solid calc(var(--font-size) * 0.25) var(--color-heading-default);
         padding-inline-start: 0.25em;
         padding-block-start: 0.25em;
         font-size: x-large;
@@ -131,14 +134,14 @@
 
     & h4 {
         font-size: large;
-        border-block-end: solid 0.25em var(--color-headline-default);
+        border-block-end: solid 0.25em var(--color-heading-default);
         position: relative;
         display: table;
     }
 
     & h5 {
         /* font-size:large; */
-        border-block-end: solid 0.25em var(--color-headline-muted);
+        border-block-end: solid 0.25em var(--color-heading-muted);
         position: relative;
         display: table;
     }
@@ -196,7 +199,7 @@
     & table {
         margin-bottom: var(--margin-bottom);
         padding: 0;
-        border: medium solid var(--color-border-default);
+        border: medium solid var(--color-border);
         border-collapse: separate;
         border-spacing: 0;
         display: block;
@@ -206,7 +209,7 @@
         box-sizing: border-box;
 
         & thead {
-            background-color: var(--color-canvas-subtle);
+            background-color: var(--color-background-emphasis);
         }
 
         & th,
@@ -224,7 +227,7 @@
 
         /* HeaderとBodyの境界 */
         & tbody>tr:first-child>* {
-            border-block-start: thin solid var(--color-border-default);
+            border-block-start: thin solid var(--color-border);
         }
 
         /* Body内の行間 */
@@ -234,7 +237,7 @@
 
         /* 縞縞をつける */
         & tbody>tr:nth-of-type(even) {
-            background-color: var(--color-canvas-muted);
+            background-color: var(--color-background-muted);
         }
     }
 
@@ -246,19 +249,19 @@
 
     /* CodeBlock */
     & pre {
-        background-color: var(--color-canvas-subtle);
+        background-color: var(--color-background-subtle);
         border-radius: calc(var(--font-size) * 0.225);
         /* margin: var(--margin); */
         /* margin: 0; */
         margin-bottom: var(--margin-bottom);
-        border: calc(var(--font-size) * 0.1) solid var(--color-border-default);
+        border: calc(var(--font-size) * 0.1) solid var(--color-border);
         padding: calc(var(--font-size) * 0.25);
         overflow-x: auto;
         max-block-size: none;
     }
 
     & code {
-        background-color: var(--color-canvas-subtle);
+        background-color: var(--color-background-subtle);
         border-radius: calc(var(--font-size) * 0.225);
         font-size: calc(100% * 0.9);
         font-family:
@@ -296,7 +299,7 @@
 
     /* Decoration */
     & hr {
-        background-color: var(--color-border-default);
+        background-color: var(--color-border);
         /* margin: var(--margin); */
         /* margin-bottom: var(--margin-bottom); */
         border: 0;
@@ -305,9 +308,9 @@
     }
 
     & blockquote {
-        background-color: var(--color-canvas-muted);
+        background-color: var(--color-background-muted);
         border: unset;
-        border-left: solid calc(var(--font-size) / 2) var(--color-border-default);
+        border-left: solid calc(var(--font-size) / 2) var(--color-border);
         padding-left: calc(var(--font-size) / 2);
     }
 
