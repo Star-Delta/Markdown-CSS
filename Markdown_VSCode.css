@@ -1,38 +1,41 @@
-/* 利用する際の注意点→https://star-delta.github.io/ */
-
-.vscode-dark {
-    --color-font: White;
-    --color-canvas-default: #1f2933;
-    --color-canvas-muted: #323f4b;
-    --color-canvas-subtle: #3e4c59;
-    --color-border-default: #52606d;
-    --color-border-muted: #616e7c;
-    --color-border-subtle: #7b8794;
-    --color-headline-default: DarkOliveGreen;
-    --color-headline-muted: Olive;
-    --color-headline-subtle: OliveDrab;
-    --color-danger: red;
-    --color-syntax: Goldenrod;
+.vscode-dark,
+.vscode-dark .markdown-body {
+        --color-font: White;
+        /* --color-background-emphasis: #1f2933; */
+        --color-background-emphasis: #272f37;
+        --color-background: #151b22;
+        --color-background-muted: #0a0e11;
+        /* --color-background-subtle: #3e4c59; */
+        --color-border: #52606d;
+        /* --color-border-muted: #616e7c; */
+        --color-border-subtle: #7b8794;
+        --color-heading-default: OliveDrab;
+        --color-heading-muted: Olive;
+        --color-heading-subtle: DarkOliveGreen;
+        --color-danger: red;
+        --color-syntax: Goldenrod;
 }
-.vscode-light {
-    --color-font: Black;
-    --color-canvas-default: White;
-    --color-canvas-muted: GhostWhite;
-    --color-canvas-subtle: WhiteSmoke;
-    --color-border-default: LightGray;
-    --color-border-muted: DarkGray;
-    --color-border-subtle: Gray;
-    --color-headline-default: DarkSeaGreen;
-    --color-headline-muted: MediumSeaGreen;
-    --color-headline-subtle: SeaGreen;
-    --color-danger: red;
-    --color-syntax: DarkGoldenrod;
+.vscode-light,
+.vscode-light .markdown-body {
+        --color-font: Black;
+        --color-background-emphasis: White;
+        --color-background: GhostWhite;
+        --color-background-muted: WhiteSmoke;
+        /* --color-background-subtle: WhiteSmoke; */
+        --color-border: LightGray;
+        /* --color-border-muted: DarkGray; */
+        --color-border-subtle: Gray;
+        --color-heading-default: DarkSeaGreen;
+        --color-heading-muted: MediumSeaGreen;
+        --color-heading-subtle: DarkSeaGreen;
+        --color-danger: red;
+        --color-syntax: DarkGoldenrod;
 }
 .vscode-body {
     /* margin: 0; */
     padding-right:0;
     padding-left:0;
-    background-color: var(--color-canvas-default);
+    background-color: var(--color-background);
     .markdown-body {
         .mermaid-wrapper {/* Mermaidプレビューがインデントの分だけ右側にはみ出す問題への対処 */
             width: unset; 
