@@ -99,7 +99,7 @@
         padding-block-start: 0.2em;
         background: var(--color-heading-subtle);
         box-shadow: 0.5em 0.25em var(--color-heading-muted), 1em 0.5em var(--color-heading-default);
-        font-size: xx-large;
+        font-size: 2em;
         text-align: center;
         counter-reset: h2;
     }
@@ -110,7 +110,7 @@
         padding-inline-start: 0.25em;
         padding-block-start: 0.25em;
         background: var(--color-heading-subtle);
-        font-size: x-large;
+        font-size: 1.5em;
         counter-increment: h2;
         counter-reset: h3;
 
@@ -124,7 +124,7 @@
         border-block-end: solid calc(var(--font-size) * 0.25) var(--color-heading-default);
         padding-inline-start: 0.25em;
         padding-block-start: 0.25em;
-        font-size: x-large;
+        font-size: 1.5em;
         counter-increment: h3;
 
         &::before {
@@ -133,7 +133,7 @@
     }
 
     & h4 {
-        font-size: large;
+        font-size: 1.2em;
         border-block-end: solid 0.25em var(--color-heading-default);
         position: relative;
         display: table;
@@ -151,7 +151,7 @@
     & h6 {
         /* 注釈として利用 */
         margin-block: 0;
-        font-size: xx-small;
+        font-size: 0.6em;
 
         &::before {
             content: '[*';
@@ -162,7 +162,7 @@
         }
 
         +p {
-            font-size: xx-small;
+            font-size: 0.6em;
             margin-block-start: 0;
         }
     }
