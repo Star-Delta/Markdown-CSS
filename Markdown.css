@@ -1,7 +1,8 @@
 /* 利用する際の注意点→https://star-delta.github.io/ */
 
 @media (prefers-color-scheme: light) {
-    .markdown-body {
+    .markdown-body ,
+    .markdown-colorpallet {
         color-scheme: light;
         --color-font: Black;
         --color-background-emphasis: White;
@@ -20,7 +21,8 @@
 }
 
 @media (prefers-color-scheme: dark) {
-    .markdown-body {
+    .markdown-body ,
+    .markdown-colorpallet {
         color-scheme: dark;
         --color-font: White;
         /* --color-background-emphasis: #1f2933; */
