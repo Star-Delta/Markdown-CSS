@@ -19,11 +19,10 @@
 .vscode-dark .markdown-body {
         color-scheme: dark;
         --color-font: White;
-        /* --color-background-emphasis: #1f2933; */
-        --color-background-emphasis: #272f37;
-        --color-background: #151b22;
-        --color-background-muted: #0a0e11;
-        /* --color-background-subtle: #3e4c59; */
+        --color-background-emphasis: #1e2838;
+        --color-background: #1a202f;
+        --color-background-muted: #151826;
+        /* --color-background-subtle: #10101d; */
         --color-border: #52606d;
         /* --color-border-muted: #616e7c; */
         --color-border-subtle: #7b8794;
