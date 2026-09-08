@@ -3,9 +3,9 @@
     .markdown-colorpallet {
         color-scheme: light;
         --color-font: Black;
-        --color-background-emphasis: White;
+        --color-background-emphasis: WhiteSmoke;
         --color-background: GhostWhite;
-        --color-background-muted: WhiteSmoke;
+        --color-background-muted: White;
         /* --color-background-subtle: WhiteSmoke; */
         --color-border: LightGray;
         /* --color-border-muted: DarkGray; */
