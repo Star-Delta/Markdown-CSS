@@ -1,5 +1,23 @@
+.vscode-light,
+.vscode-light .markdown-body {
+        color-scheme: light;
+        --color-font: Black;
+        --color-background-emphasis: White;
+        --color-background: GhostWhite;
+        --color-background-muted: WhiteSmoke;
+        /* --color-background-subtle: WhiteSmoke; */
+        --color-border: LightGray;
+        /* --color-border-muted: DarkGray; */
+        --color-border-subtle: Gray;
+        --color-heading-default: DarkSeaGreen;
+        --color-heading-muted: MediumSeaGreen;
+        --color-heading-subtle: DarkSeaGreen;
+        /* --color-danger: red; */
+        --color-syntax: SaddleBrown;
+}
 .vscode-dark,
 .vscode-dark .markdown-body {
+        color-scheme: dark;
         --color-font: White;
         /* --color-background-emphasis: #1f2933; */
         --color-background-emphasis: #272f37;
@@ -12,24 +30,8 @@
         --color-heading-default: OliveDrab;
         --color-heading-muted: Olive;
         --color-heading-subtle: DarkOliveGreen;
-        --color-danger: red;
-        --color-syntax: Goldenrod;
-}
-.vscode-light,
-.vscode-light .markdown-body {
-        --color-font: Black;
-        --color-background-emphasis: White;
-        --color-background: GhostWhite;
-        --color-background-muted: WhiteSmoke;
-        /* --color-background-subtle: WhiteSmoke; */
-        --color-border: LightGray;
-        /* --color-border-muted: DarkGray; */
-        --color-border-subtle: Gray;
-        --color-heading-default: DarkSeaGreen;
-        --color-heading-muted: MediumSeaGreen;
-        --color-heading-subtle: DarkSeaGreen;
-        --color-danger: red;
-        --color-syntax: DarkGoldenrod;
+        /* --color-danger: red; */
+        --color-syntax: SandyBrown;
 }
 .vscode-body {
     /* margin: 0; */

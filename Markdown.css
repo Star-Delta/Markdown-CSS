@@ -1,5 +1,6 @@
-@media (prefers-color-scheme: light) {
-    .markdown-body ,
+@media (prefers-color-scheme: light), print {
+
+    .markdown-body,
     .markdown-colorpallet {
         color-scheme: light;
         --color-font: Black;
@@ -13,13 +14,14 @@
         --color-heading-default: SeaGreen;
         --color-heading-muted: MediumSeaGreen;
         --color-heading-subtle: DarkSeaGreen;
-        --color-danger: red;
-        --color-syntax: DarkGoldenrod;
+        /* --color-danger: red; */
+        --color-syntax: SaddleBrown;
     }
 }
 
-@media (prefers-color-scheme: dark) {
-    .markdown-body ,
+@media screen and (prefers-color-scheme: dark) {
+
+    .markdown-body,
     .markdown-colorpallet {
         color-scheme: dark;
         --color-font: White;
@@ -34,8 +36,8 @@
         --color-heading-default: OliveDrab;
         --color-heading-muted: Olive;
         --color-heading-subtle: DarkOliveGreen;
-        --color-danger: red;
-        --color-syntax: Goldenrod;
+        /* --color-danger: red; */
+        --color-syntax: SandyBrown;
     }
 }
 
@@ -44,9 +46,9 @@
     /* --margin: 0.5cm; */
     --margin-bottom: var(--font-size);
     --border: none;
-    --padding: none;
-    --font-size: 16px;
-    --content-indent: 1rem;
+    --padding: 0;
+    --font-size: 1rem;
+    --content-indent: var(--font-size);
     /* --line-height: calc(var(--font-size) * 1.25); */
     --line-height: 1.5;
 }
@@ -77,14 +79,15 @@
     font-family: "Helvetica Neue",
     "Hiragino Kaku Gothic ProN",
     Meiryo,
-    sans-selif;
+    sans-serif;
+    overflow-wrap: anywhere;
 
     /* HeadLine */
     :is(h1, h2, h3, h4, h5) {
         margin-block: 1.5em 0.5em;
         padding-block: 0;
         /* padding-bottom: calc(var(--font-size) * 0); */
-        line-height: 1;
+        line-height: 1.2;
 
         + :is(h1, h2, h3, h4, h5) {
             margin-block: 0.25em;
@@ -101,11 +104,11 @@
         box-shadow: 0.5em 0.25em var(--color-heading-muted), 1em 0.5em var(--color-heading-default);
         font-size: 2em;
         text-align: center;
-        counter-reset: h2;
+        counter-reset: h2 h3;
     }
 
     & h2 {
-        border-inline-start: solid 1rem var(--color-heading-muted);
+        border-inline-start: solid var(--font-size) var(--color-heading-muted);
         border-block-end: solid calc(var(--font-size) * 0.25) var(--color-heading-default);
         padding-inline-start: 0.25em;
         padding-block-start: 0.25em;
@@ -120,7 +123,7 @@
     }
 
     & h3 {
-        border-inline-start: solid 1rem var(--color-heading-muted);
+        border-inline-start: solid var(--font-size) var(--color-heading-muted);
         border-block-end: solid calc(var(--font-size) * 0.25) var(--color-heading-default);
         padding-inline-start: 0.25em;
         padding-block-start: 0.25em;
@@ -174,7 +177,8 @@
     }
 
     & strong {
-        color: var(--color-danger);
+        color: inherit;
+        font-weight: bold;
     }
 
     & em {
@@ -249,7 +253,7 @@
 
     /* CodeBlock */
     & pre {
-        background-color: var(--color-background-subtle);
+        background-color: var(--color-background-muted);
         border-radius: calc(var(--font-size) * 0.225);
         /* margin: var(--margin); */
         /* margin: 0; */
@@ -261,7 +265,7 @@
     }
 
     & code {
-        background-color: var(--color-background-subtle);
+        background-color: var(--color-background-muted);
         border-radius: calc(var(--font-size) * 0.225);
         font-size: calc(100% * 0.9);
         font-family:
@@ -278,8 +282,9 @@
         line-height: 1;
     }
 
-    /* インラインコードの長い連続文字列を画面内で改行する */
+    /* インラインコードの文字色と長い連続文字列の折り返し */
     & code:not(pre code) {
+        color: var(--color-syntax);
         overflow-wrap: anywhere;
     }
 

@@ -27,7 +27,7 @@ CommonMarkおよびGitHub Flavored Markdown（GFM）に沿って生成されたH
 - 横幅を超えるTableとCodeBlockの横スクロール
 - Tableの外周、列間、HeaderとBodyの境界、Body内の行間を区別した罫線
 - Table Bodyの縞模様
-- 長いインラインコードの自動改行
+- 本文・リンク・見出し・インラインコードの長い連続文字列の自動改行
 - 印刷時のTableとCodeBlockのスクロール解除および自動改行
 - VS Code Markdown Preview固有のMermaidとCodeBlockコピーボタンの調整
 
@@ -108,7 +108,7 @@ VS Codeは`https` URLのほか、現在のWorkspaceを基準とした相対パ�
 
 `Markdown_VSCode.css`では、VS Codeが生成する`.vscode-body`を対象に以下を調整します。
 
-- VS Codeのライト・ダークテーマに対応した色
+- VS Codeのライト・ダークテーマに対応した本文やスクロールバー、フォーム部品の配色
 - Mermaidの横幅と初期化用要素
 - Preview先頭要素の上余白
 - CodeBlockコピーボタンを収める最小高さ
@@ -129,6 +129,8 @@ VS Codeは`https` URLのほか、現在のWorkspaceを基準とした相対パ�
 
 画面表示ではTableとCodeBlockの横スクロールが維持されます。
 
+`Markdown.css`は印刷時にライトテーマの配色を適用します。画面表示がダークテーマでも、印刷時は黒文字と明るい背景になります。
+
 VS CodeにはMarkdown PreviewをCSSの印刷レイアウトとして出力する標準機能がないため、`Markdown_Print.css`はVS Codeでの利用を想定していません。
 
 ### Marp
@@ -144,31 +146,33 @@ VS CodeにはMarkdown PreviewをCSSの印刷レイアウトとして出力する
 
 | プロパティ         | 初期値             | 用途                                         |
 | ------------------ | ------------------ | -------------------------------------------- |
-| `--font-size`      | `16px`             | 本文と各要素の寸法基準                       |
+| `--font-size`      | `1rem`             | 本文と各要素の寸法基準                       |
 | `--line-height`    | `1.5`              | 本文の行高                                   |
 | `--margin-bottom`  | `var(--font-size)` | Block要素下部の基本余白                      |
-| `--content-indent` | `1rem`             | 見出し以外の直下要素に使用する左右インデント |
+| `--content-indent` | `var(--font-size)` | 見出し以外の直下要素に使用する左右インデント |
 | `--border`         | `none`             | `.markdown-body`のborder                     |
-| `--padding`        | `none`             | `.markdown-body`のpadding                    |
+| `--padding`        | `0`                | `.markdown-body`のpadding                    |
 
 色はライト・ダークテーマごとに、以下の系列で定義しています。
 
 - `--color-font`
-- `--color-canvas-*`
-- `--color-border-*`
-- `--color-headline-*`
-- `--color-danger`
-- `--color-syntax`
+- `--color-background`、`--color-background-emphasis`、`--color-background-muted`
+- `--color-border`、`--color-border-subtle`
+- `--color-heading-default`、`--color-heading-muted`、`--color-heading-subtle`
+- `--color-syntax`：インラインコードの文字色
 
 利用側のCSSで同じカスタムプロパティを上書きすることで配色や寸法を変更できます。
 
 ### 表示上の仕様
 
 - H2とH3の番号はCSS Counterで生成されるため、Markdown本文そのものには追加されません。
+- H1でH2・H3の番号をリセットし、H2でH3の番号をリセットします。H2を省略してH3から始めた場合は、`0.1`から採番します。
+- H1からH5までの行高は文字サイズの1.2倍です。
 - H6は通常の小見出しではなく、注釈としての利用を想定しています。
+- 強調（`strong`）は周囲の文字色を引き継ぎ、太字で表示します。
 - 画面表示のTable Cellは自動改行せず、必要な場合にTable内を横スクロールします。
 - CodeBlockは長い行を折り返さず横スクロールし、縦方向は全行を表示します。
-- インラインコードは、長い連続文字列でも表示領域内で改行します。
+- 本文・リンク・見出し・インラインコードは、長い連続文字列でも表示領域内で改行します。
 - 印刷時はTableとCodeBlockを用紙幅内で改行します。
 - CSS Nesting、`:has()`、`:nth-child(... of ...)`などを使用しているため、対応する比較的新しいブラウザ／Preview環境が必要です。
 
