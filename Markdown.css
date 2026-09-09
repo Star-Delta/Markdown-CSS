@@ -94,7 +94,8 @@
     }
 
     & h1 {
-        margin-inline-end: 1em;
+        /* 本文のインデントに揃え、終端側には影の幅も確保する */
+        margin-inline: var(--content-indent) calc(var(--content-indent) + 1em);
         /* margin-block-end: 1em; */
         /* margin-bottom: calc(var(--margin-bottom) + var(--font-size)); */
         border: none;
