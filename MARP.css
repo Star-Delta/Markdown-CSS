@@ -1,204 +1,133 @@
-/* @theme MARP */
+/* @theme Star-Delta_MARP */
+/* @import 'default'; */
+
 section {
-    /* --logo: url(./MARP_Logo.png); */
-    --logo-size: 10%;
-    --logo-size-title: 50%;
-    --logo: url(https://3.bp.blogspot.com/-OJvoWxkTTB8/XGjx8Xq6uFI/AAAAAAABRdA/g9vIX6kCQH8IO-y1neLRRm39TaTc_nVDQCLcBGAs/s800/animal_gomafu_azarashi.png)
-}
-section {
-    --color-bg-default: white;
-    --color-bg-muted: LightGray;
-    --color-bg-subtle: DarkGray;
-    --color-text-default: black;
-    --color-text-muted: DimGray;
-    --color-text-subtle: Gray;
-    --color-text-danger: red;
-    --color-border-default: SlateGray;
-    --color-border-muted: LightSlateGray;
+    color-scheme: light;
+    --color-font: Black;
+    --color-background-emphasis: WhiteSmoke;
+    --color-background: GhostWhite;
+    --color-background-muted: White;
+    /* --color-background-subtle: WhiteSmoke; */
+    --color-border: LightGray;
+    /* --color-border-muted: DarkGray; */
+    --color-border-subtle: Gray;
+    --color-heading-default: SeaGreen;
+    --color-heading-muted: MediumSeaGreen;
+    --color-heading-subtle: DarkSeaGreen;
+    /* --color-danger: red; */
+    --color-syntax: SaddleBrown;
 }
 
 section {
-    background-color: var(--color-bg-default);
-    background-image: var(--logo);/*.md起点のPathを書く*/
-    background-size: var(--logo-size);
-    background-repeat: no-repeat;
-    background-position-x: right;
-    background-position-y: top;
+    --border: none;
+    --padding: var(--font-size);
+    --font-size: 24px;
+    --content-indent: var(--font-size);
+    --line-height: 1.5;
 }
 
 section {
     width: 960px;
     height: 720px;
-    font-size: 18px;
+    position: relative;
+    font-size: var(--font-size);
     display: block;
-    padding: 2.5%;
-    color: var(--color-text-default);
-}
-
-
-section::after {
-    margin: 0.5%;
-    border: 1px solid var(--color-border-default);
-    padding: 1%;
-    content: attr(data-marpit-pagination) '/' attr(data-marpit-pagination-total);
-    font-style: italic;
-}
-
-section header,
-section footer {
-    position: absolute;
-    color: var(--color-text-muted);
-    font-size: 12px;
-    margin: 1px;
-}
-
-section header{
     text-align: left;
-    left: 0%;
-    top: 0%;
-}
-
-section footer {
-    text-align: center;
-    left: 0%;
-    right: 0%;
-    bottom: 0px;
-}
-
-section footer::before {
-    content:"Copyright © ";
-}
-
-section p,
-section img{
-    display: inline-block;
-    vertical-align: top;
-    margin: auto 0%;
+    /* padding: var(--padding); */
     padding: 0;
-}
-section strong {
-    color: var(--color-text-danger);
-}
-
-section em {
-    text-decoration: underline;
+    color: var(--color-font);
+    background-color: var(--color-background);
 }
 
-section h1,
-section h2,
-section h3,
-section h4,
-section h5,
-section h6 {
-    margin: auto 0%;
-    padding: 0%;
+/* 2ページ目以降は、先頭の内容を上側のコンテンツ端に揃える */
+section> :first-child {
+    /* margin-block-start: 0; */
 }
 
-section h2 {
-    font-size: 150%;
-    border-bottom: 5px double var(--color-border-default);
+/* Add "Page" prefix and total page number */
+section::after {
+    padding: calc(var(--font-size) * 0.2);
+    font-size: 0.66em;
+    content: attr(data-marpit-pagination) ' / ' attr(data-marpit-pagination-total);
 }
 
-section h3 {
-    font-size: 150%;
-    border-bottom: 2.5px solid var(--color-border-default);
-}
-section h4 {
-    font-size: 130%;
-}
-
-section h5 {
-    font-size: 120%;
-}
-
-section h6 {
-    font-size: 110%;
+header {
+    /* section を基準に、全スライドの中央下部へ固定する */
+    position: absolute;
+    inset-inline: 0;
+    top: 0;
+    margin: 0;
+    padding: calc(var(--font-size) * 0.2);
+    font-size: 0.66em;
+    text-align: left;
 }
 
-section pre,
-section code,
-section blockquote {
-    border-color: var(--color-border-default);
-    padding: 3px;
-    background-color: var(--color-bg-muted);
-    font-style: italic;
-}
-
-section pre,
-section code {
-    border-width: 1px;
-    border-style: solid;
-    border-radius: 5px;
-    font-size: 90%;
-}
-
-section pre code {
-    border-style:unset;
-}
-
-section blockquote {
-    margin: auto 0;
-    border-left-width: 4px ;
-    border-left-style: solid ;
-    /* padding-left: 4px; */
-    color: var(--color-text-muted);
-}
-
-section table ,
-section table th ,
-section table td {
-    border-width:1px;
-    border-style: solid;
-    border-color: var(--color-border-default);
-}
-
-section table {
-    margin: auto 0%;
-    padding: 0;
-    border-spacing: 0;
-    border-collapse: 0;
-}
-
-section table th {
-    background-color:var(--color-bg-subtle);
-}
-
-section table tr {
-    background-color:var(--color-bg-default);
-}
-
-section table tr:nth-child(2n) {
-    background-color:var(--color-bg-muted);
-}
-
-section table tr:nth-child(2n) code,
-section blockquote code {
-    background-color:var(--color-bg-default);
-}
-
-section.Title {
-    background-size: var(--logo-size-title);
-    background-repeat: no-repeat;
-    background-position-x: right;
-    background-position-y: center;
-}
-
-section.Title{
-    display:table-cell;
+footer {
+    /* section を基準に、全スライドの中央下部へ固定する */
+    position: absolute;
+    inset-inline: 0;
+    bottom: 0;
+    margin: 0;
+    padding: calc(var(--font-size) * 0.2);
+    font-size: 0.66em;
     text-align: center;
-    vertical-align: middle;
-
 }
 
-section.Title h1 {
-    margin-top: 0px;
-    font-size: 300%;
-    border-bottom:none
+/* 各 section は別の親を持つため、先頭ページは生成された ID で指定する */
+section[id="1"] {
+    /* 内容全体を縦に並べ、スライドの上下・左右の中央に配置する */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 }
 
-section.Title p {
-    font-size: 150%;
-    margin-top: 15px;
-    display: block;
+section[id="1"]>header {
+    visibility: hidden;
 }
 
+:not(h1, h2, h3, h6, hr) {
+    margin-inline: var(--content-indent);
+}
+
+h1 {
+    /* 背景と右側の影を合わせて section のコンテンツ幅いっぱいに広げる */
+    align-self: stretch;
+    margin-inline: var(--content-indent) calc(var(--content-indent) + 1em);
+    border: none;
+    /* padding-block-start: 0; */
+    background: var(--color-heading-subtle);
+    box-shadow: 0.5em 0.25em var(--color-heading-muted), 1em 0.5em var(--color-heading-default);
+    font-size: 2em;
+    text-align: inherit;
+    counter-reset: h2 h3;
+}
+
+h2 {
+    border-inline-start: solid var(--font-size) var(--color-heading-muted);
+    border-block-end: solid calc(var(--font-size) * 0.25) var(--color-heading-default);
+    padding-inline-start: 0.25em;
+    /* padding-block-start: 0.25em; */
+    background: var(--color-heading-subtle);
+    font-size: 1.5em;
+    counter-increment: h2;
+    counter-reset: h3;
+}
+
+h2::before {
+    content: counter(h2) " ";
+}
+
+h3 {
+    border-inline-start: solid var(--font-size) var(--color-heading-muted);
+    border-block-end: solid calc(var(--font-size) * 0.25) var(--color-heading-default);
+    padding-inline-start: 0.25em;
+    /* padding-block-start: 0.25em; */
+    font-size: 1.5em;
+    counter-increment: h3;
+}
+
+h3::before {
+    content: counter(h2) "." counter(h3) " ";
+}
