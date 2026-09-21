@@ -1,45 +1,16 @@
-/* 印刷用スタイル */
-
 @media print {
-    .markdown-body h1,
-    .markdown-body h2 {
-        print-color-adjust: exact;
-        -webkit-print-color-adjust: exact;
-    }
+    .markdown-body {
 
-    .markdown-body h1 {
-        margin-top: 50vh;
-    }
+        >h1:first-child {
+            margin-top: 50vh;
 
-    .markdown-body h1 + p {
-        text-align: center;
-    }
+            +p {
+                text-align: center;
+            }
+        }
 
-    .markdown-body h2 {
-        page-break-before: always;
-    }
-    /* 印刷時は横スクロールを解除 */
-    .markdown-body table {
-        display: table;
-        width: auto;
-        max-width: 100%;
-        overflow: visible;
-    }
-    .markdown-body > table {
-        max-width: calc(100% - 2 * var(--content-indent));
-    }
-
-    /* 印刷時はCodeBlockの横スクロールを解除して要素内で改行 */
-    .markdown-body pre {
-        overflow: visible;
-        white-space: pre-wrap;
-        overflow-wrap: anywhere;
-    }
-
-    /* 印刷時はセル内の自動改行を許可 */
-    .markdown-body th,
-    .markdown-body td {
-        white-space: normal;
-        overflow-wrap: anywhere;
+        h2 {
+            page-break-before: always;
+        }
     }
 }
