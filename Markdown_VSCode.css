@@ -39,9 +39,7 @@ html:has(body.vscode-dark),
 html {
     padding: 0;
     @media screen {
-            scrollbar-color:
-                var(--color-border-subtle)
-                var(--color-background-muted);
+        scrollbar-color: var(--color-border-subtle) var(--color-background-muted);
     }
 }
 
