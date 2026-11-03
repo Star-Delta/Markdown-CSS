@@ -1,4 +1,5 @@
 @media screen and (prefers-color-scheme: light) {
+
     .markdown-body,
     .markdown-colorpallet {
         color-scheme: light;
@@ -19,6 +20,7 @@
 }
 
 @media screen and (prefers-color-scheme: dark) {
+
     .markdown-body,
     .markdown-colorpallet {
         color-scheme: dark;
@@ -39,6 +41,7 @@
 }
 
 @media print {
+
     .markdown-body,
     .markdown-colorpallet {
         color-scheme: light;
@@ -111,8 +114,9 @@
             margin-block: 0.25em;
         }
     }
+
     /* h1 の直後に h2 が続く場合の余白 */
-    & h1 + h2 {
+    & h1+h2 {
         margin-block-start: calc(var(--content-indent) * 2);
     }
 
@@ -174,7 +178,7 @@
         counter-increment: h4;
 
         &::before {
-            content: counter(h2) "." counter(h3)  "." counter(h4) " ";
+            content: counter(h2) "." counter(h3) "." counter(h4) " ";
         }
     }
 
@@ -191,8 +195,6 @@
         position: relative;
         display: table;
     }
-
-    /* HeadLine */
 
     /* characters and sentences */
     & p:has(+ ul),
@@ -229,12 +231,18 @@
         border: medium solid var(--color-border);
         border-collapse: separate;
         border-spacing: 0;
-        display: block;
-        width: max-content;
+        display: table;
+        width: auto;
         max-width: 100%;
-        overflow-x: auto;
+        overflow: visible;
         box-sizing: border-box;
-        
+
+        @media screen {
+            display: block;
+            width: max-content;
+            overflow-x: auto;
+        }
+
         & thead {
             background-color: var(--color-background-emphasis);
         }
@@ -242,9 +250,14 @@
         & th,
         & td {
             border: 0;
-            white-space: nowrap;
-            padding:
-                calc(var(--font-size) * 0.1) calc(var(--font-size) * 0.2);
+            white-space: normal;
+            padding: calc(var(--font-size) * 0.1) calc(var(--font-size) * 0.2);
+            overflow-wrap: anywhere;
+
+            @media screen {
+                white-space: nowrap;
+                overflow-wrap: normal;
+            }
         }
 
         /* 列間の縦罫線 */
@@ -272,8 +285,6 @@
         max-width: calc(100% - 2 * var(--content-indent));
     }
 
-    /* Table */
-
     /* CodeBlock */
     & pre {
         background-color: var(--color-background-muted);
@@ -283,8 +294,16 @@
         margin-bottom: var(--margin-bottom);
         border: calc(var(--font-size) * 0.1) solid var(--color-border);
         padding: calc(var(--font-size) * 0.25);
-        overflow-x: auto;
+        overflow: visible;
         max-block-size: none;
+        white-space: pre-wrap;
+        overflow-wrap: anywhere;
+
+        @media screen {
+            overflow-x: auto;
+            white-space: normal;
+            overflow-wrap: normal;
+        }
     }
 
     & code {
@@ -311,8 +330,6 @@
         overflow-wrap: anywhere;
     }
 
-    /* CodeBlock */
-
     /* Image */
     & img {
         max-width: 100%;
@@ -322,8 +339,6 @@
     >img {
         max-width: calc(100% - 2 * var(--content-indent));
     }
-
-    /* Image */
 
     /* Decoration */
     & hr {
@@ -342,8 +357,6 @@
         padding-left: calc(var(--font-size) / 2);
     }
 
-    /* Decoration */
-
     /* List */
     & ol,
     & ul {
@@ -356,36 +369,5 @@
         & ul {
             margin-bottom: unset;
         }
-    }
-
-    /* List */
-}
-
-@media print {
-
-    /* 印刷時は横スクロールを解除 */
-    .markdown-body table {
-        display: table;
-        width: auto;
-        max-width: 100%;
-        overflow: visible;
-    }
-
-    .markdown-body>table {
-        max-width: calc(100% - 2 * var(--content-indent));
-    }
-
-    /* 印刷時はCodeBlockの横スクロールを解除して要素内で改行 */
-    .markdown-body pre {
-        overflow: visible;
-        white-space: pre-wrap;
-        overflow-wrap: anywhere;
-    }
-
-    /* 印刷時はセル内の自動改行を許可 */
-    .markdown-body th,
-    .markdown-body td {
-        white-space: normal;
-        overflow-wrap: anywhere;
     }
 }
