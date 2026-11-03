@@ -16,6 +16,7 @@ html:has(body.vscode-light),
         /* --color-danger: red; */
         --color-syntax: SaddleBrown;
 }
+
 html:has(body.vscode-dark),
 .vscode-dark,
 .vscode-dark .markdown-body {
@@ -34,6 +35,16 @@ html:has(body.vscode-dark),
         /* --color-danger: red; */
         --color-syntax: SandyBrown;
 }
+
+html {
+    padding: 0;
+    @media screen {
+            scrollbar-color:
+                var(--color-border-subtle)
+                var(--color-background-muted);
+    }
+}
+
 .vscode-body {
     /* margin: 0; */
     padding-right:0;
@@ -56,13 +67,3 @@ html:has(body.vscode-dark),
         min-block-size: 50px;
     }
 } 
-
-html {
-    padding: 0;
-
-    @media screen {
-            scrollbar-color:
-                var(--color-border-subtle)
-                var(--color-background-muted);
-    }
-}
