@@ -40,6 +40,14 @@
     }
 }
 
+@media screen {
+    .markdown-body {
+        scrollbar-color:
+            var(--color-border-subtle)
+            var(--color-background-muted);
+    }
+}
+
 @media print {
 
     .markdown-body,

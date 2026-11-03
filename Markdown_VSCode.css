@@ -1,3 +1,4 @@
+html:has(body.vscode-light),
 .vscode-light,
 .vscode-light .markdown-body {
         color-scheme: light;
@@ -15,6 +16,7 @@
         /* --color-danger: red; */
         --color-syntax: SaddleBrown;
 }
+html:has(body.vscode-dark),
 .vscode-dark,
 .vscode-dark .markdown-body {
         color-scheme: dark;
@@ -57,4 +59,10 @@
 
 html {
     padding: 0;
+
+    @media screen {
+            scrollbar-color:
+                var(--color-border-subtle)
+                var(--color-background-muted);
+    }
 }
