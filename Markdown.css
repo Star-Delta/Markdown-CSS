@@ -84,7 +84,7 @@
         margin-block-end: 0;
     }
 
-    > :not(h1, h2, h3, hr) {
+    > :not(h1, h2, h3, h4, hr) {
         margin-inline: var(--content-indent);
     }
 
@@ -98,10 +98,7 @@
     Meiryo,
     sans-serif;
     overflow-wrap: anywhere;
-
-    @media screen {
-        scrollbar-color: var(--color-border-subtle) var(--color-background-muted);
-    }
+    scrollbar-color: var(--color-border-subtle) var(--color-background-muted);
 
     /* HeadLine */
     :is(h1, h2, h3, h4, h5, h6) {
@@ -119,6 +116,12 @@
         margin-block-start: calc(var(--content-indent) * 2);
     }
 
+    h1,
+    h2 {
+        print-color-adjust: exact;
+        -webkit-print-color-adjust: exact;
+    }
+
     & h1 {
         /* 本文のインデントに揃え、終端側には影の幅も確保する */
         margin-inline: var(--content-indent) calc(var(--content-indent) + 1em);
@@ -130,7 +133,7 @@
         box-shadow: 0.5em 0.25em var(--color-heading-muted), 1em 0.5em var(--color-heading-default);
         font-size: 2em;
         text-align: center;
-        counter-reset: h2 h3;
+        counter-reset: h2 h3 h4;
     }
 
     & h2 {
@@ -141,7 +144,7 @@
         background: var(--color-heading-subtle);
         font-size: 1.5em;
         counter-increment: h2;
-        counter-reset: h3;
+        counter-reset: h3 h4;
 
         &::before {
             content: counter(h2) " ";
@@ -153,8 +156,9 @@
         border-block-end: solid calc(var(--font-size) * 0.25) var(--color-heading-default);
         padding-inline-start: 0.25em;
         padding-block-start: 0.25em;
-        font-size: 1.5em;
+        font-size: 1.4em;
         counter-increment: h3;
+        counter-reset: h4;
 
         &::before {
             content: counter(h2) "." counter(h3) " ";
@@ -162,21 +166,28 @@
     }
 
     & h4 {
+        border-inline-start: solid var(--font-size) var(--color-heading-muted);
+        /* border-block-end: solid calc(var(--font-size) * 0.25) var(--color-heading-default); */
+        padding-inline-start: 0.25em;
+        padding-block-start: 0.25em;
+        font-size: 1.3em;
+        counter-increment: h4;
+
+        &::before {
+            content: counter(h2) "." counter(h3)  "." counter(h4) " ";
+        }
+    }
+
+    & h5 {
         font-size: 1.2em;
         border-block-end: solid 0.25em var(--color-heading-default);
         position: relative;
         display: table;
     }
 
-    & h5 {
+    & h6 {
         font-size: 1.1em;
         border-block-end: solid 0.25em var(--color-heading-muted);
-        position: relative;
-        display: table;
-    }
-
-    & h6 {
-        border-block-end: solid 0.25em var(--color-heading-subtle);
         position: relative;
         display: table;
     }
@@ -223,7 +234,7 @@
         max-width: 100%;
         overflow-x: auto;
         box-sizing: border-box;
-
+        
         & thead {
             background-color: var(--color-background-emphasis);
         }
@@ -351,12 +362,6 @@
 }
 
 @media print {
-
-    .markdown-body h1,
-    .markdown-body h2 {
-        print-color-adjust: exact;
-        -webkit-print-color-adjust: exact;
-    }
 
     /* 印刷時は横スクロールを解除 */
     .markdown-body table {
