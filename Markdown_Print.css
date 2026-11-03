@@ -9,7 +9,7 @@
             }
         }
 
-        h2 {
+        hr {
             page-break-before: always;
         }
     }
