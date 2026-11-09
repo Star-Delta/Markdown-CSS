@@ -406,5 +406,10 @@
     .markdown-alert > :last-child {
       margin-block-end: 0;
     }
+
+    .footnotes {
+        font-size: 0.8em;
+        /* vertical-align: super; */
+    }
 }
 
