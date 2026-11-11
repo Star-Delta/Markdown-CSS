@@ -72,21 +72,16 @@
 }
 
 .markdown-body {
-    /* --margin: calc(var(--font-size) * 0.5); */
-    /* --margin: 0.5cm; */
     --margin-bottom: var(--font-size);
     --border: none;
     --padding: 0;
     --font-size: 1rem;
     --content-indent: var(--font-size);
-    /* --line-height: calc(var(--font-size) * 1.25); */
     --line-height: 1.5;
 }
 
 .markdown-body {
     background-color: var(--color-background);
-    /* margin: var(--margin); */
-    /* margin-bottom: var(--margin-bottom); */
     margin: 0;
 
     > :first-child {
@@ -117,17 +112,11 @@
     :is(h1, h2, h3, h4, h5, h6) {
         margin-block: 1.5em 0.5em;
         padding-block: 0;
-        /* padding-bottom: calc(var(--font-size) * 0); */
         line-height: 1.2;
 
         + :is(h1, h2, h3, h4, h5, h6) {
-            margin-block: 0.25em;
+            margin-block-start: 0.25em;
         }
-    }
-
-    /* h1 の直後に h2 または alert が続く場合の余白 */
-    & h1 + :is(h2, .markdown-alert) {
-        margin-block-start: calc(var(--content-indent) * 2);
     }
 
     h1,
@@ -139,8 +128,7 @@
     & h1 {
         /* 本文のインデントに揃え、終端側には影の幅も確保する */
         margin-inline: var(--content-indent) calc(var(--content-indent) + 1em);
-        /* margin-block-end: 1em; */
-        /* margin-bottom: calc(var(--margin-bottom) + var(--font-size)); */
+        margin-block-end: calc(var(--content-indent) * 2);
         border: none;
         padding-block-start: 0.2em;
         background: var(--color-heading-subtle);
@@ -181,7 +169,6 @@
 
     & h4 {
         border-inline-start: solid var(--font-size) var(--color-heading-muted);
-        /* border-block-end: solid calc(var(--font-size) * 0.25) var(--color-heading-default); */
         padding-inline-start: 0.25em;
         padding-block-start: 0.25em;
         font-size: 1.3em;
@@ -299,8 +286,6 @@
     & pre {
         background-color: var(--color-background-muted);
         border-radius: calc(var(--font-size) * 0.225);
-        /* margin: var(--margin); */
-        /* margin: 0; */
         margin-bottom: var(--margin-bottom);
         border: calc(var(--font-size) * 0.1) solid var(--color-border);
         padding: calc(var(--font-size) * 0.25);
@@ -353,10 +338,7 @@
     /* Decoration */
     & hr {
         background-color: var(--color-border);
-        /* margin: var(--margin); */
-        /* margin-bottom: var(--margin-bottom); */
         border: 0;
-        /* border-style:solid; */
         padding: 1px;
     }
 
@@ -409,7 +391,6 @@
 
     .footnotes {
         font-size: 0.8em;
-        /* vertical-align: super; */
     }
 }
 
