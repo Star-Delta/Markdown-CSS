@@ -125,8 +125,8 @@
         }
     }
 
-    /* h1 の直後に h2 が続く場合の余白 */
-    & h1+h2 {
+    /* h1 の直後に h2 または alert が続く場合の余白 */
+    & h1 + :is(h2, .markdown-alert) {
         margin-block-start: calc(var(--content-indent) * 2);
     }
 
